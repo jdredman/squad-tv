@@ -3,53 +3,76 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>RP1 Squad Slide</title>
+    <style>
+      html {
+        background-color: black;
+        background-image: url("images/rp1-image.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        filter: contrast(1.2) brightness(0.9) saturate(1.3);
+        animation: crt-flicker 0.1s infinite;
+        position: relative;
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        height: 100%;
+      }
+
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 0.1) 2px,
+          rgba(0, 0, 0, 0.1) 2px,
+          rgba(0, 0, 0, 0.1) 4px
+        );
+        pointer-events: none;
+      }
+
+      @keyframes crt-flicker {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.99;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .floating-image {
+        position: absolute;
+        top: 50px;
+        right: 40px;
+        width: 409px;
+        height: 355px;
+        animation: float 5s infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+    </style>
   </head>
-  <style>
-    html {
-      background-color: black;
-      background-image: url("images/rp1-image.jpg");
-      background-repeat: no-repeat;
-      background-size: 100%;
-      filter: contrast(1.2) brightness(0.9) saturate(1.3);
-      animation: crt-flicker 0.1s infinite;
-      position: relative;
-      height: 100%;
-    }
-
-    body {
-      margin: 0;
-      height: 100%;
-    }
-
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(255, 255, 255, 0.1) 2px,
-        rgba(0, 0, 0, 0.1) 2px,
-        rgba(0, 0, 0, 0.1) 4px
-      );
-      pointer-events: none;
-    }
-
-    @keyframes crt-flicker {
-      0% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.99;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-  </style>
-  <body></body>
+  <body>
+    <img src="images/spaceship.png" alt="RP1 Image" class="floating-image" />
+  </body>
 </html>
